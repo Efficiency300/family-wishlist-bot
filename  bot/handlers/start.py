@@ -2,6 +2,7 @@ from pathlib import Path
 from aiogram import Router
 from aiogram.filters import CommandStart
 from aiogram.types import FSInputFile, Message
+from bot.keyboards.reply import main_menu_kb
 
 router = Router()
 
@@ -17,4 +18,4 @@ async def start_command_handler(message: Message) -> None:
     """
     Handler for the /start command, which will be called when user starts the bot
     """
-    await message.answer_photo(photo=WELCOME_PHOTO, caption=WELCOME_TEXT)
+    await message.answer_photo(photo=WELCOME_PHOTO, caption=WELCOME_TEXT, reply_markup=main_menu_kb())
